@@ -127,18 +127,30 @@ def ls_files(details=False):
 def get_status():
     paths = set()
     for root, dirs, files in os.walk('.'):
-        dirs[:] = [d for d in dirs if d != '.git']
+        new_dirs = []
+        for d in dirs:
+            if d != '.git':
+                new_dirs.append(d)
+        dirs[:] = new_dirs
         for file in files:
             path = os.path.join(root, file)
             path = path.replace('\\', '/')
             if path.startswith('./'):
                 path = path[2:]
             paths.add(path)
-    entries_by_path = {e.path: e for e in read_index()}
+            
+    entries_by_path = {}
+    for e in read_index():
+        result[e.path] = e
     entry_paths = set(entries_by_path)
-    changed = {p for p in (paths & entry_paths)
-               if hash_object(read_file(p), 'blob', write=False) !=
-                  entries_by_path[p].sha1.hex()}
+    changed = set()
+    for p in (paths & entry_paths):
+        file_content = read_file(p)
+        current_hash = hash_object(file_content, 'blob', write=False)
+        index_hash = entries_by_path[p].sha1.hex()
+        
+        if current_hash != index_hash:
+            changed.add(p)
     new = paths - entry_paths
     deleted = entry_paths - paths
     return (sorted(changed), sorted(new), sorted(deleted))
