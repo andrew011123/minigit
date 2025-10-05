@@ -168,7 +168,7 @@ def cmd_info(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog='pygit',
+        prog='minigit',
         description='A simple Git implementation in Python'
     )
     
