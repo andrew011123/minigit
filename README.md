@@ -18,7 +18,8 @@
 
 ### Why PyGit?
 
-**Understanding Git internals makes you a better developer. PyGit demonstrates:**
+**Understanding Git internals makes you a better developer. 
+PyGit demonstrates:**
 
 - How Git stores objects (blobs, trees, commits)
 - How the staging area works
