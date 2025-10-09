@@ -1,4 +1,4 @@
-## PyGit: A simplified but functional Git implementation in pure Python to understand how Git works behind the scenes.
+## Minigit: A simplified but functional Git implementation in pure Python to understand how Git works behind the scenes.
 
 
 ### Features
@@ -16,10 +16,9 @@
 - Pack file generation for network transfer
 - Zero external dependencies (pure Python stdlib)
 
-### Why PyGit?
+### Why Minigit?
 
-**Understanding Git internals makes you a better developer. 
-PyGit demonstrates:**
+**Minigit demonstrates:**
 
 - How Git stores objects (blobs, trees, commits)
 - How the staging area works
@@ -30,64 +29,64 @@ PyGit demonstrates:**
 ### Installation
 **From Source**
 ```
-git clone https://github.com/yourusername/pygit.git
-cd pygit
+git clone https://github.com/Andrew011123/minigit.git
+cd minigit
 pip install -e 
 ```
 **Using Docker**
 ```
-docker build -t pygit .
-docker run -it pygit
+docker build -t minigit .
+docker run -it minigit
 ```
 **Quick Start**
 ```
 # Initialize a repository
-pygit init my-repo
+minigit init my-repo
 cd my-repo
 
 # Create a file
 echo "Hello, Git!" > README.md
 
 # Stage the file
-pygit add README.md
+minigit add README.md
 
 # Check status
-pygit status
+minigit status
 
 # Commit
 export GIT_AUTHOR_NAME="Your Name"
 export GIT_AUTHOR_EMAIL="you@example.com"
-pygit commit -m "Initial commit"
+minigit commit -m "Initial commit"
 
 # View history
-pygit log
+minigit log
 
 # See what changed
 echo "More content" >> README.md
-pygit diff
+minigit diff
 
 # Push to remote (GitHub)
-pygit push https://github.com/user/repo.git -u username -p token
+minigit push https://github.com/user/repo.git -u username -p token
 ```
 **Commands**
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `init` | Initialize a new repository | `pygit init my-repo` |
-| `add` | Stage files for commit | `pygit add file1.txt file2.txt` |
-| `status` | Show working tree status | `pygit status` |
-| `commit` | Record changes to repository | `pygit commit -m "Add feature"` |
-| `diff` | Show changes between index and working tree | `pygit diff` |
-| `log` | Show commit history | `pygit log -n 10` |
-| `ls-files` | List files in index | `pygit ls-files -s` |
-| `cat-file` | Display object contents | `pygit cat-file pretty abc123` |
-| `hash-object` | Compute object hash | `pygit hash-object file.txt -w` |
-| `push` | Update remote refs | `pygit push <url> -u user -p pass` |
-| `info` | Show repository information | `pygit info` |
+| `init` | Initialize a new repository | `minigit init my-repo` |
+| `add` | Stage files for commit | `minigit add file1.txt file2.txt` |
+| `status` | Show working tree status | `minigit status` |
+| `commit` | Record changes to repository | `minigit commit -m "Add feature"` |
+| `diff` | Show changes between index and working tree | `minigit diff` |
+| `log` | Show commit history | `minigit log -n 10` |
+| `ls-files` | List files in index | `minigit ls-files -s` |
+| `cat-file` | Display object contents | `minigit cat-file pretty abc123` |
+| `hash-object` | Compute object hash | `minigit hash-object file.txt -w` |
+| `push` | Update remote refs | `minigit push <url> -u user -p pass` |
+| `info` | Show repository information | `minigit info` |
 
 **Architecture**
 ```
-pygit/
+minigit/
 ├── __init__.py          # Package initialization
 ├── core.py              # Object storage (hash, read, write)
 ├── index.py             # Staging area operations
@@ -144,10 +143,10 @@ pip install -e ".[dev]"
 pytest tests/ -v
 
 # With coverage
-pytest tests/ --cov=pygit --cov-report=html
+pytest tests/ --cov=minigit --cov-report=html
 
 # Run specific test
-pytest tests/test_pygit.py::TestRepository::test_init_creates_structure
+pytest tests/test_minigit.py::TestRepository::test_init_creates_structure
 ```
 
 **Limitations**
@@ -164,7 +163,7 @@ This is an educational implementation with some intentional simplifications:
 
 **Comparison with Real Git**
 
-| Feature | PyGit | Git |
+| Feature | minigit | Git |
 |---------|-------|-----|
 | Object storage | ✅ | ✅ |
 | Commits | ✅ | ✅ |
@@ -183,37 +182,37 @@ This is an educational implementation with some intentional simplifications:
 
 - Blog Post: See blog_post.md for detailed explanation
 - Code Comments: Every function is documented
-- Tests: tests/test_pygit.py shows usage examples
+- Tests: tests/test_minigit.py shows usage examples
 
 ### Advanced Usage
 **Examining Objects**
 ```
 # Hash a file
-pygit hash-object myfile.txt -w
+minigit hash-object myfile.txt -w
 
 # View object type
-pygit cat-file type abc123
+minigit cat-file type abc123
 
 # View object size
-pygit cat-file size abc123
+minigit cat-file size abc123
 
 # Pretty-print object
-pygit cat-file pretty abc123
+minigit cat-file pretty abc123
 ```
 
 **Index Operations**
 ```
 # List files in index
-pygit ls-files
+minigit ls-files
 
 # List with details (mode, hash, stage)
-pygit ls-files -s
+minigit ls-files -s
 ```
 
 **Repository Info**
 ```
 # Show repo information
-pygit info
+minigit info
 ```
 
 Output:
@@ -224,15 +223,15 @@ Repository Information:
   Current branch: refs/heads/master
   Objects stored: 42
 ```
-### Extending PyGit
+### Extending minigit
 
 ### FAQ
 Q: Why Python instead of C like real Git?
 A: Python is more readable for educational purposes. Performance isn't the goal.
 Q: Does this work with GitHub/GitLab?
 A: Yes! The push command works with any Git server supporting HTTP basic auth.
-Q: Can real Git read PyGit repositories?
-A: Yes! PyGit creates standard Git objects. You can use real Git commands in a PyGit repo.
+Q: Can real Git read minigit repositories?
+A: Yes! minigit creates standard Git objects. You can use real Git commands in a minigit repo.
 
 ### Acknowledgements/Licensing
 MIT License - See LICENSE file for details.
