@@ -35,7 +35,7 @@ pip install -e
 ```
 **Using Docker**
 ```
-docker build -t minigit .
+docker build -t minigit
 docker run -it minigit
 ```
 **Quick Start**
