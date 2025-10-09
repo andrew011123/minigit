@@ -5,14 +5,14 @@ readme_file = Path(__file__).parent / "README.md"
 long_description = readme_file.read_text() if readme_file.exists() else ""
 
 setup(
-    name="pygit",
+    name="minigit",
     version="1.0.0",
     author="Your Name",
     author_email="your.email@example.com",
     description="A simple Git implementation in Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/pygit",
+    url="https://github.com/yourusername/minigit",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -39,7 +39,7 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "pygit=pygit.cli:main",
+            "minigit=minigit.cli:main",
         ],
     },
 )
