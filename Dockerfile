@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     vim \
     && rm -rf /var/lib/apt/lists/*
 
-COPY pygit/ ./pygit/
+COPY minigit/ ./minigit/
 COPY setup.py .
 COPY README.md .
 COPY requirements.txt .
@@ -15,11 +15,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install -e .
 
-RUN git config --global user.name "PyGit User" && \
-    git config --global user.email "pygit@example.com"
+RUN git config --global user.name "minigit User" && \
+    git config --global user.email "minigit@example.com"
 
-ENV GIT_AUTHOR_NAME="PyGit User"
-ENV GIT_AUTHOR_EMAIL="pygit@example.com"
+ENV GIT_AUTHOR_NAME="minigit User"
+ENV GIT_AUTHOR_EMAIL="minigit@example.com"
 
 RUN mkdir /workspace
 WORKDIR /workspace
