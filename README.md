@@ -3,18 +3,18 @@
 
 ### Features
 
-✅ Repository initialization (init)
-✅ Staging files (add)
-✅ Creating commits (commit)
-✅ Viewing status (status)
-✅ Showing diffs (diff)
-✅ Commit history with visualization (log)
-✅ Push to remote repositories (push)
-✅ Content-addressable object storage
-✅ Index/staging area
-✅ Tree and blob objects
-✅ Pack file generation for network transfer
-✅ Zero external dependencies (pure Python stdlib)
+- Repository initialization (init)
+- Staging files (add)
+- Creating commits (commit)
+- Viewing status (status)
+- Showing diffs (diff)
+- Commit history with visualization (log)
+- Push to remote repositories (push)
+- Content-addressable object storage
+- Index/staging area
+- Tree and blob objects
+- Pack file generation for network transfer
+- Zero external dependencies (pure Python stdlib)
 
 ### Why PyGit?
 
