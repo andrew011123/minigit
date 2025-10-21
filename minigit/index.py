@@ -86,6 +86,18 @@ def read_index() -> List[IndexEntry]:
     
     return entries
 
+def _normalize_stat_value(value, max_value=0xFFFFFFFF):
+    """
+    Normalize stat values to fit in unsigned 32-bit integer.
+    
+    Windows can return values that don't fit or aren't meaningful.
+    We clamp them to valid range.
+    """
+    if value is None or value < 0:
+        return 0
+    if value > max_value:
+        return value & max_value
+    return value
 
 def write_index(entries: List[IndexEntry]):
     """
@@ -102,9 +114,18 @@ def write_index(entries: List[IndexEntry]):
         try:
             entry_head = struct.pack(
                 '!LLLLLLLLLL20sH',
-                entry.ctime_s, entry.ctime_n, entry.mtime_s, entry.mtime_n,
-                entry.dev, entry.ino, entry.mode, entry.uid, entry.gid,
-                entry.size, entry.sha1, entry.flags
+                _normalize_stat_value(entry.ctime_s),
+                _normalize_stat_value(entry.ctime_n),
+                _normalize_stat_value(entry.mtime_s),
+                _normalize_stat_value(entry.mtime_n),
+                _normalize_stat_value(entry.dev),
+                _normalize_stat_value(entry.ino),
+                _normalize_stat_value(entry.mode),
+                _normalize_stat_value(entry.uid),
+                _normalize_stat_value(entry.gid),
+                _normalize_stat_value(entry.size),
+                entry.sha1,
+                entry.flags
             )
             
             path = entry.path.encode()
@@ -123,6 +144,7 @@ def write_index(entries: List[IndexEntry]):
         write_file(os.path.join('.git', 'index'), all_data + digest)
     except Exception as e:
         raise GitIndexError(f"Could not write index file: {e}")
+
 
 
 def add_files(paths: List[str]):
