@@ -149,3 +149,5 @@ def get_diff_stats() -> dict:
                 stats['insertions'] += 1
             elif line.startswith('-') and not line.startswith('---'):
                 stats['deletions'] += 1
+              
+    return stats
