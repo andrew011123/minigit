@@ -31,7 +31,7 @@
 ```
 git clone https://github.com/Andrew011123/minigit.git
 cd minigit
-pip install -e 
+pip install -e .
 ```
 **Using Docker**
 ```
