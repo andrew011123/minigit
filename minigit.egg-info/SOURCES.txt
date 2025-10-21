@@ -1,0 +1,8 @@
+README.md
+setup.py
+minigit.egg-info/PKG-INFO
+minigit.egg-info/SOURCES.txt
+minigit.egg-info/dependency_links.txt
+minigit.egg-info/entry_points.txt
+minigit.egg-info/requires.txt
+minigit.egg-info/top_level.txt

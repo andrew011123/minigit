@@ -1,13 +1,13 @@
 import argparse
 import sys
-from .repository import init_repository, get_repository_info
-from .index import add_files, list_files, get_status
-from .commit import create_commit, visualize_commit_history
-from .diff import print_diff, get_diff_stats
-from .core import read_object, hash_object, read_file, ObjectType
-from .tree import read_tree, print_tree
-from .network import push
-from .exceptions import GitError
+from ..repository import init_repository, get_repository_info
+from ..index import add_files, list_files, get_status
+from ..commit import create_commit, visualize_commit_history
+from ..diff import print_diff, get_diff_stats
+from ..core import read_object, hash_object, read_file, ObjectType
+from ..tree import read_tree, print_tree
+from ..network import push
+from ..exceptions import GitError
 import stat
 
 

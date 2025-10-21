@@ -1,0 +1,2 @@
+[console_scripts]
+minigit = minigit.cli:main
