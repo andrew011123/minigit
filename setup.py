@@ -7,12 +7,12 @@ long_description = readme_file.read_text(encoding="utf-8") if readme_file.exists
 setup(
     name="minigit",
     version="1.0.0",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Andrew Johnson",
+    author_email="AndrewJohnson1325@gmail.com",
     description="A simple Git implementation in Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/minigit",
+    url="https://github.com/Andrew011123/minigit",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",

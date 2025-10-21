@@ -1,0 +1,9 @@
+[project]
+name = "minigit"
+version = "0.1.0"
+description = "A tiny git-like version control system"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+minigit = "minigit.cli:main"
