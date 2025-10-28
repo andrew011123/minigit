@@ -5,7 +5,7 @@ import struct
 from collections import namedtuple
 from typing import List, Set, Tuple
 from .core import hash_object, read_file, write_file, ObjectType
-from .exceptions import IndexError as GitIndexError
+from .exceptions import GitError, IndexError as GitIndexError
 
 
 IndexEntry = namedtuple('IndexEntry', [
@@ -32,7 +32,7 @@ def read_index() -> List[IndexEntry]:
     
     try:
         data = read_file(index_path)
-    except FileNotFoundError:
+    except (FileNotFoundError, GitError):
         return []
     except Exception as e:
         raise GitIndexError(f"Could not read index file: {e}")
