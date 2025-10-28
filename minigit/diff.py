@@ -18,6 +18,9 @@ def diff_files(path1: str, content1: bytes, path2: str, content2: bytes,
     Returns:
         List of diff lines
     """
+    if b'\x00' in content1 or b'\x00' in content2:
+        return [f"Binary files {path1} and {path2} differ"]
+    
     try:
         lines1 = content1.decode('utf-8').splitlines(keepends=False)
         lines2 = content2.decode('utf-8').splitlines(keepends=False)
