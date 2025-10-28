@@ -227,10 +227,15 @@ Repository Information:
 
 ### FAQ
 Q: Why Python instead of C like real Git?
+
 A: Python is more readable for educational purposes. Performance isn't the goal.
+
 Q: Does this work with GitHub/GitLab?
+
 A: Yes! The push command works with any Git server supporting HTTP basic auth.
+
 Q: Can real Git read minigit repositories?
+
 A: Yes! minigit creates standard Git objects. You can use real Git commands in a minigit repo.
 
 ### License
