@@ -150,7 +150,7 @@ def get_local_ref(ref_name: str = 'refs/heads/master') -> Optional[str]:
     ref_path = os.path.join('.git', ref_name)
     try:
         return read_file(ref_path).decode().strip()
-    except FileNotFoundError:
+    except (FileNotFoundError, GitError):
         return None
 
 
