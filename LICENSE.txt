@@ -21,3 +21,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+**Attribution Notice:**
+
+This project was inspired by and builds upon ideas from the
+[pygit](https://github.com/benhoyt/pygit) project by Ben Hoyt (MIT Licensed).
+While the initial concept was informed by that implementation, this project
+includes substantial new features, architectural improvements, and expanded
+functionality beyond the original pygit design.
