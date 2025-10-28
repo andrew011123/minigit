@@ -242,8 +242,7 @@ A: Yes! minigit creates standard Git objects. You can use real Git commands in a
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ### Attribution
-This work was inspired by [pygit](https://github.com/benhoyt/pygit) by Ben Hoyt (MIT Licensed).
-Significant advancements and extensions have been made beyond the original implementation, including
+This work (made to educate myself on the inner workings of git) was inspired by [pygit](https://github.com/benhoyt/pygit) by Ben Hoyt (MIT Licensed). Significant advancements and extensions have been made beyond the original implementation, including
 expanded functionality, refactored architecture, and new features.
 
 **Author**
