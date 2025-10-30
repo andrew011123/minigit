@@ -163,7 +163,7 @@ This is an educational implementation with some intentional simplifications:
 
 **Comparison with Real Git**
 
-| Feature | minigit | Git |
+| Feature | MiniGit | Git |
 |---------|-------|-----|
 | Object storage | ✅ | ✅ |
 | Commits | ✅ | ✅ |
@@ -239,7 +239,7 @@ Q: Can real Git read minigit repositories?
 A: Yes! minigit creates standard Git objects. You can use real Git commands in a minigit repo.
 
 ### License
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE.txt](LICENSE.txt) file for details.
 
 ### Attribution
 This work (made to educate myself on the inner workings of git) was inspired by [pygit](https://github.com/benhoyt/pygit) by Ben Hoyt (MIT Licensed). Significant advancements and extensions have been made beyond the original implementation, including
