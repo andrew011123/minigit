@@ -163,7 +163,7 @@ This is an educational implementation with some intentional simplifications:
 
 **Comparison with Real Git**
 
-| Feature | minigit | Git |
+| Feature | MiniGit | Git |
 |---------|-------|-----|
 | Object storage | ✅ | ✅ |
 | Commits | ✅ | ✅ |
@@ -227,14 +227,23 @@ Repository Information:
 
 ### FAQ
 Q: Why Python instead of C like real Git?
+
 A: Python is more readable for educational purposes. Performance isn't the goal.
+
 Q: Does this work with GitHub/GitLab?
+
 A: Yes! The push command works with any Git server supporting HTTP basic auth.
+
 Q: Can real Git read minigit repositories?
+
 A: Yes! minigit creates standard Git objects. You can use real Git commands in a minigit repo.
 
-### Acknowledgements/Licensing
-MIT License - See LICENSE file for details.
+### License
+This project is licensed under the MIT License — see the [LICENSE.txt](LICENSE.txt) file for details.
+
+### Attribution
+This work (made to educate myself on the inner workings of git) was inspired by [pygit](https://github.com/benhoyt/pygit) by Ben Hoyt (MIT Licensed). Significant advancements and extensions have been made beyond the original implementation, including
+expanded functionality, refactored architecture, and new features.
 
 **Author**
 Andrew Johnson
