@@ -8,7 +8,7 @@ setup(
     name="minigit",
     version="1.0.0",
     author="Andrew Johnson",
-    author_email="AndrewJohnson1325@gmail.com",
+    author_email="Andrew011123@users.noreply.github.com",
     description="A simple Git implementation in Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
