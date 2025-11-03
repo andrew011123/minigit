@@ -9,6 +9,7 @@
 - Viewing status (status)
 - Showing diffs (diff)
 - Commit history with visualization (log)
+- **GitHub repository creation (create-repo)** (NEW)
 - Push to remote repositories (push)
 - Content-addressable object storage
 - Index/staging area
@@ -65,8 +66,12 @@ minigit log
 echo "More content" >> README.md
 minigit diff
 
-# Push to remote (GitHub)
-minigit push https://github.com/user/repo.git -u username -p token
+# Create a GitHub repository (requires personal access token)
+export GITHUB_TOKEN="your_token_here"
+minigit create-repo my-new-repo -t $GITHUB_TOKEN
+
+# Push to the new remote repository
+minigit push https://github.com/username/my-new-repo.git -u username -p token
 ```
 **Commands**
 
@@ -81,6 +86,7 @@ minigit push https://github.com/user/repo.git -u username -p token
 | `ls-files` | List files in index | `minigit ls-files -s` |
 | `cat-file` | Display object contents | `minigit cat-file pretty abc123` |
 | `hash-object` | Compute object hash | `minigit hash-object file.txt -w` |
+| `create-repo` | Create a GitHub repository | `minigit create-repo my-repo -t token` |
 | `push` | Update remote refs | `minigit push <url> -u user -p pass` |
 | `info` | Show repository information | `minigit info` |
 
@@ -93,7 +99,8 @@ minigit/
 ├── tree.py              # Tree object handling
 ├── commit.py            # Commit operations
 ├── diff.py              # Diff generation
-├── network.py           # Push protocol
+├── network.py           # Push protocol (Git)
+├── github_api.py        # GitHub REST API client
 ├── repository.py        # Repository management
 ├── cli.py               # Command-line interface
 └── exceptions.py        # Custom exceptions
@@ -223,6 +230,55 @@ Repository Information:
   Current branch: refs/heads/master
   Objects stored: 42
 ```
+### GitHub Integration
+
+**Creating Repositories**
+
+Minigit can create GitHub repositories directly using the GitHub REST API:
+
+```bash
+# Create a public repository
+minigit create-repo my-awesome-project -t YOUR_GITHUB_TOKEN
+
+# The command returns the clone URL:
+# https://github.com/yourusername/my-awesome-project.git
+
+# Then you can push to it
+minigit push https://github.com/yourusername/my-awesome-project.git -u username -p token
+```
+
+**Getting a GitHub Token**
+
+1. Go to GitHub Settings → Developer Settings → Personal Access Tokens → Tokens (classic)
+2. Click "Generate new token"
+3. Give it a name and select the `repo` scope
+4. Copy the token (you won't see it again!)
+5. Use it with `-t` flag: `minigit create-repo myrepo -t ghp_yourtoken...`
+
+**Complete Workflow Example**
+
+```bash
+# 1. Initialize local repository
+minigit init my-project
+cd my-project
+
+# 2. Create some content
+echo "# My Project" > README.md
+minigit add README.md
+
+# 3. Set author info and commit
+export GIT_AUTHOR_NAME="Your Name"
+export GIT_AUTHOR_EMAIL="you@example.com"
+minigit commit -m "Initial commit"
+
+# 4. Create GitHub repository
+export GITHUB_TOKEN="ghp_your_token_here"
+CLONE_URL=$(minigit create-repo my-project -t $GITHUB_TOKEN)
+
+# 5. Push to GitHub
+minigit push $CLONE_URL -u your_username -p $GITHUB_TOKEN
+```
+
 ### Extending minigit
 
 ### FAQ
