@@ -187,7 +187,6 @@ This is an educational implementation with some intentional simplifications:
 
 **Learning Resources**
 
-- Blog Post: See blog_post.md for detailed explanation
 - Code Comments: Every function is documented
 - Tests: tests/test_minigit.py shows usage examples
 
