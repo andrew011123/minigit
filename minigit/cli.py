@@ -8,6 +8,7 @@ from .core import read_object, hash_object, read_file, ObjectType
 from .tree import read_tree, print_tree
 from .network import push
 from .exceptions import GitError
+from .github_api import create_github_repo
 import stat
 
 
@@ -166,6 +167,15 @@ def cmd_info(args):
         sys.exit(1)
 
 
+def cmd_create_repo(args):
+    try:
+        clone_url = create_github_repo(args.name, username=args.username, token=args.token)
+        print(clone_url)
+    except GitError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
+
+
 def main():
     parser = argparse.ArgumentParser(
         prog='minigit',
@@ -235,6 +245,12 @@ def main():
     
     parser_info = subparsers.add_parser('info', help='show repository information')
     parser_info.set_defaults(func=cmd_info)
+
+    parser_create = subparsers.add_parser('create-repo', help='create a GitHub repository for the current user')
+    parser_create.add_argument('name', help='name of the repository to create')
+    parser_create.add_argument('-u', '--username', help='GitHub username (optional)')
+    parser_create.add_argument('-t', '--token', help='GitHub personal access token or password')
+    parser_create.set_defaults(func=cmd_create_repo)
     
     args = parser.parse_args()
     args.func(args)
